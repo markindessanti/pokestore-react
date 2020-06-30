@@ -14,7 +14,7 @@ const Header = (props) => {
 	const toggle = () => setIsOpen(!isOpen);
 
 	return (
-		<div>
+		<header>
 			<Navbar color="warning" dark expand="md">
 				<NavbarBrand href="/">
 					<img className="logo" src="../../favicon.ico" alt="logo" />
@@ -30,7 +30,7 @@ const Header = (props) => {
 					</form>
 				</Collapse>
 			</Navbar>
-		</div>
+		</header>
 	);
 }
 
