@@ -4,14 +4,24 @@
 }
 
 .logo {
-	width: 36px;
-	height: 36px;
+	width: 40px;
+	height: 40px;
 	margin-right: 10px;
 }
 
 .logo-text {
-	line-height: 36px;
+	line-height: 40px;
 	vertical-align: middle;
+	font-size: 1.5em;
+	font-weight: 700;
+	color: #3860aa;
+	text-shadow: 0 2px 5px rgba(30, 30, 30, 0.5);
+}
+
+@media (max-width: 480px) {
+	NavbarBrand {
+		display: block;
+	}
 }
 
 .btn-outline-light {
