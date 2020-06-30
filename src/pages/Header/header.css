@@ -1,3 +1,9 @@
+.bg-warning.jumbotron {
+	padding-top: 16px !important;
+	padding-bottom: 16px !important;
+	margin-bottom: 0;
+}
+
 #inputPesquisar {
 	box-sizing: border-box;
 	width: 310px;
@@ -19,8 +25,18 @@
 }
 
 @media (max-width: 480px) {
-	NavbarBrand {
+	.div-brand {
 		display: block;
+	}
+
+	.logo-text {
+		font-size: 1.2em;
+	}
+	
+	#inputPesquisar {
+		display: block;
+		width: 100%;
+		font-size: 0.8em;
 	}
 }
 
@@ -30,4 +46,15 @@
 	border-color: #f8f9fa;
 	background-color: rgba(200, 70, 70, 0.3);
 	font-weight: 700;
+}
+
+.navbar-toggler {
+	border: 1px solid transparent;
+	border-color: #f8f9fa;
+	background-color: rgba(200, 70, 70, 0.3);
+}
+
+.navbar-toggler:focus {
+	outline: none;
+	background-color: rgba(220, 90, 90, 0.2);
 }
