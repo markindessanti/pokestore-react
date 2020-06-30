@@ -1,5 +1,5 @@
 import React from 'react';
-import Cartao from '../../components/Card/Cartao';
+import Cartao from '../../components/Cartao/Cartao';
 import { Container } from 'reactstrap';
 import './article.css';
 
