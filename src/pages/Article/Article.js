@@ -3,9 +3,11 @@ import React from 'react';
 class Article extends React.Component {
 	render() {
 		return (
-			<main>
-				<p>Conteúdo Principal</p>
-			</main>
+			<div className='container-fluid'>
+				<main>
+					<p>Conteúdo Principal</p>
+				</main>
+			</div>
 		);
 	}
 }
