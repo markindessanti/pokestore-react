@@ -1,13 +1,30 @@
 import React from 'react';
+import Cartao from '../../components/Card/Cartao';
+import { Container } from 'reactstrap';
+import './article.css';
+
+import imagem from '../../assets/img/318x180.png';
 
 class Article extends React.Component {
 	render() {
 		return (
-			<div className='container-fluid'>
+			<Container>
 				<main>
-					<p>Conteúdo Principal</p>
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
+					<Cartao imagem={imagem} />
 				</main>
-			</div>
+			</Container>
 		);
 	}
 }

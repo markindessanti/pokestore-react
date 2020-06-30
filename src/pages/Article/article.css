@@ -1,0 +1,5 @@
+main {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 10px 5px;
+}

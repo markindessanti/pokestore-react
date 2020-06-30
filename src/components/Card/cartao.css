@@ -1,0 +1,39 @@
+.card {
+	flex: 1 1 calc(25% - 2rem);
+	padding: 5px;
+	margin: 10px;
+}
+
+.card:last-of-type {
+	flex-grow: 0;
+}
+
+/* Portrait tablet to landscape and desktop */
+
+@media (min-width: 768px) and (max-width: 979px) {
+	.card {
+		flex: 1 1 calc(33% - 2rem);
+		padding: 5px;
+		margin: 10px;
+	}
+}
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 767px) {
+	.card {
+		flex: 1 1 calc(50% - 2rem);
+		padding: 5px;
+		margin: 10px;
+	}
+}
+
+/* Landscape phones and down */
+
+@media (max-width: 480px) {
+	.card {
+		flex: 1 1 calc(100% - 2rem);
+		padding: 5px;
+		margin: 10px;
+	}
+}
