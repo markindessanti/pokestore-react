@@ -1,0 +1,23 @@
+#inputPesquisar {
+	box-sizing: border-box;
+	width: 310px;
+}
+
+.logo {
+	width: 36px;
+	height: 36px;
+	margin-right: 10px;
+}
+
+.logo-text {
+	line-height: 36px;
+	vertical-align: middle;
+}
+
+.btn-outline-light {
+	border: 1px solid transparent;
+	color: #f8f9fa;
+	border-color: #f8f9fa;
+	background-color: rgba(200, 70, 70, 0.3);
+	font-weight: 700;
+}
