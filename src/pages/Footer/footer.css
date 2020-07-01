@@ -1,0 +1,64 @@
+.div-footer {
+	display: flex;
+	flex-direction: row;
+	flex-wrap: wrap;
+}
+
+.jumbo-footer {
+	background-color: #BB4040;
+	margin-bottom: 0;
+	border-radius: 0;
+	padding-top: 40px;
+	padding-bottom: 20px;
+}
+
+.info, .redes-sociais {
+	flex: 1 1 calc(50% - 2rem);
+	text-align: left;
+	color: #f8f9fa;
+	box-sizing: border-box;
+	/* border: 1px solid white; */
+	text-decoration: none;
+}
+
+/* Landscape phone to portrait tablet */
+
+@media (max-width: 500px) {
+	.info, .redes-sociais {
+		flex: 1 1 calc(100% - 2rem);
+		padding: 5px;
+		margin: 10px;
+	}
+
+	.div-footer {
+		justify-content: center;
+	}
+}
+
+.redes-sociais p a, .info p a {
+	text-decoration: none;
+	color: #f8f9fa;
+}
+
+.redes-sociais p img, .info p a {
+	width: 40px;
+	margin: 0 15px;
+}
+
+.info p {
+	margin: 0 15px;
+	line-height: 2em;
+}
+
+#creditos {
+	padding-top: 30px;
+	background-color: #BB4040;
+	color: #f8f9fa;
+	display: flex;
+	justify-content: center;
+}
+
+#label-endereco {
+	font-size: 1.5em;
+	font-weight: 900;
+}
