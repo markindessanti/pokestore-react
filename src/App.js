@@ -1,10 +1,10 @@
 import React from 'react';
-import Article from './pages/Article';
+import Routes from './routes';
 
 class App extends React.Component {
 	render() {
 		return (
-			<Article />
+			<Routes />
 		);
 	}
 }
