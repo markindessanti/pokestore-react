@@ -18,6 +18,11 @@
 	}
 }
 
+.card-img {
+	width: 70%;
+	margin: 15px auto;
+}
+
 /* Landscape phone to portrait tablet */
 
 @media (max-width: 767px) {
@@ -44,4 +49,12 @@
 
 .div-card-button {
 	text-align: center;
+}
+
+.card-title {
+	text-align: center;
+	margin-bottom: 30px;
+	font-size: 1.5em;
+	font-weight: 700;
+	color: rgb(214, 40, 40);
 }
