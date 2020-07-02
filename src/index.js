@@ -7,9 +7,7 @@ import Footer from './pages/Footer';
 import FloatingButton from './components/FloatingButton';
 
 ReactDOM.render(
-	<React.StrictMode>
-		<Header />
-	</React.StrictMode>,
+		<Header />,
 	document.getElementById('header')
 );
 
