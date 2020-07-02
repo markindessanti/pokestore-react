@@ -4,6 +4,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import Header from './pages/Header';
 import App from './App';
 import Footer from './pages/Footer';
+import FloatingButton from './components/FloatingButton';
 
 ReactDOM.render(
 	<React.StrictMode>
@@ -24,4 +25,11 @@ ReactDOM.render(
 		<Footer />
 	</React.StrictMode>,
 	document.getElementById('footer')
+);
+
+ReactDOM.render(
+	<React.StrictMode>
+		<FloatingButton />
+	</React.StrictMode>,
+	document.getElementById('floatingButton')
 );
