@@ -9,7 +9,7 @@ const FloatingButton = (props) => {
 		<Button>
 			<a href='http://www.google.com.br' className="float">
 				<i className="fa fa-shopping-cart fa-2x my-float"></i>
-				<span class="tooltiptext">Seu carrinho</span>
+				<span className="tooltiptext">Seu carrinho</span>
 			</a>
 		</Button>
 	);
