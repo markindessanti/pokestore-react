@@ -1,10 +1,14 @@
 import React from 'react';
 import Routes from './routes';
+import ModalCarrinho from './components/ModalCarrinho';
 
 class App extends React.Component {
 	render() {
 		return (
-			<Routes />
+			<div>
+				<Routes />
+				<ModalCarrinho buttonLabel="Finalizar compra" className="modal-carrinho" />
+			</div>
 		);
 	}
 }
