@@ -8,39 +8,32 @@ body {
 	font-size: 18px;
 }
 
-.fab {
+.float {
 	position: fixed;
-	width: 64px;
-	height: 64px;
+	width: 60px;
+	height: 60px;
 	top: 140px;
 	right: 10px;
 	background-color: rgb(47, 106, 235);
 	color: #FFF;
-	font-size: 2.3em;
 	border-radius: 50px;
 	text-align: center;
 	/* box-shadow: 2px 2px 3px #999; */
 }
 
-.fab i {
-	vertical-align: 100%;
-}
-
-.my-fab {
+.my-float {
 	margin: 14px auto;
 }
 
-.fab .tooltiptext {
+.float .tooltiptext {
 	visibility: hidden;
-	font-size: 0.3em;
-	width: 140px;
-	background-color: rgba(170, 0, 0, 0.8);
+	width: 120px;
+	background-color: rgb(238, 156, 26, 0.8);
 	color: #f8f9fa;
-	font-weight: 500;
+	font-weight: 600;
 	text-align: center;
 	border-radius: 5px;
 	padding: 5px 0;
-	letter-spacing: 1px;
 	/* Position the tooltip */
 	position: absolute;
 	z-index: 1;
@@ -48,24 +41,14 @@ body {
 	right: 105%;
 }
 
-.fab:hover .tooltiptext {
+.float:hover .tooltiptext {
 	visibility: visible;
 }
 
-.fab:hover {
+.float:hover {
 	color: rgb(255, 255, 146)
 }
 
-.modal-open .modal {
-	position: fixed;
-	overflow-x: hidden;
+.modal-open {
+	overflow: scroll;
 }
-
-body.modal-open {
-	height: 100vh;
-	overflow:hidden;
-	overflow-y: visible;
-	padding:0 !important;
-	padding-right: 15px;
-	position: static;
-  }
