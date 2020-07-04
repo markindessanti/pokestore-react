@@ -11,23 +11,17 @@ ReactDOM.render(
 	document.getElementById('header')
 );
 
-ReactDOM.render(
-	<React.StrictMode>
-		<App />
-	</React.StrictMode>,
+ReactDOM.render(	
+		<App />,
 	document.getElementById('article')
 );
 
-ReactDOM.render(
-	<React.StrictMode>
-		<Footer />
-	</React.StrictMode>,
+ReactDOM.render(	
+		<Footer />,
 	document.getElementById('footer')
 );
 
-ReactDOM.render(
-	<React.StrictMode>
-		<FloatingButton />
-	</React.StrictMode>,
+ReactDOM.render(	
+		<FloatingButton />,
 	document.getElementById('floatingButton')
 );
