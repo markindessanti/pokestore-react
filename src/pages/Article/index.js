@@ -40,7 +40,7 @@ function Article() {
 					altura: (parseInt(json.height) * 10).toString() + ' cm',
 					peso: ((parseInt(json.weight) * 100) / 1000).toString().replace('.', ',') + ' kg',
 					sprite: `https://pokeres.bastionbot.org/images/pokemon/${json.id}.png`,
-					preco: ((parseInt(json.height) * 2) + (parseInt(json.weight))) * 2
+					preco: (((parseInt(json.height) * 2) + (parseInt(json.weight) / 4)) * 2).toFixed(2).toString().replace('.', ',')
 				}
 
 				lista.push(result)
@@ -79,18 +79,19 @@ function Article() {
 	}, [dados, listaInfo]);
 
 	if (dadosFinal) {
-		console.log('dadosFinal :>> ', dadosFinal);
+		const listaFinal = JSON.parse(dadosFinal)
 		return (
 			<main>
 				{
-					dadosFinal.map((item) => {
+					listaFinal.map((item) => {
 						return (
 							<Cartao key={item.id}
 								imagem={item.sprite}
 								nome={item.nome}
 								altura={item.altura}
 								peso={item.peso}
-								descricao={item.descricao} />
+								descricao={item.descricao}
+								preco={item.preco} />
 						)
 					})
 				}

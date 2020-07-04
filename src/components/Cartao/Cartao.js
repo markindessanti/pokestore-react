@@ -12,8 +12,8 @@ const Cartao = (props) => {
 			<CardBody>
 				<CardTitle>{props.nome}</CardTitle>
 				<CardSubtitle>{props.descricao}</CardSubtitle>
-				<CardText>Altura: {props.altura}</CardText>
-				<CardText>Peso: {props.peso}</CardText>
+				<CardText>Altura: {props.altura}<br />{props.peso}</CardText>
+				<CardText>Preço: {props.preco}</CardText>
 				<div className="div-card-button">
 					<Button className="card-button">Enviar para o carrinho</Button>
 				</div>
