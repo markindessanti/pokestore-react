@@ -11,8 +11,9 @@ const Cartao = (props) => {
 			<CardImg src={props.imagem} alt="Card image cap" />
 			<CardBody>
 				<CardTitle>{props.nome}</CardTitle>
-				<CardSubtitle>Card subtitle</CardSubtitle>
-				<CardText>Some quick example text to build on the card title and make up the bulk of the card's content.</CardText>
+				<CardSubtitle>{props.descricao}</CardSubtitle>
+				<CardText>Altura: {props.altura}</CardText>
+				<CardText>Peso: {props.peso}</CardText>
 				<div className="div-card-button">
 					<Button className="card-button">Enviar para o carrinho</Button>
 				</div>
