@@ -93,8 +93,6 @@ function Article() {
 						)
 					})
 				}
-
-				
 			</main>
 		)
 	} else {

@@ -105,4 +105,5 @@
 .card-hidden {
 	visibility: hidden;
 	height: 0;
+	margin: 0;
 }
