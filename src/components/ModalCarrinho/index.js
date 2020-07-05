@@ -32,7 +32,7 @@ const ModalCarrinho = (props) => {
 					<div className="div-inline">Total</div><div className="div-inline">{total.toFixed(2).toString().replace('.', ',')}</div>
 				</div>
 				<ModalFooter>
-					<ButtonModalFinalizar color="primary">{buttonLabel}</ButtonModalFinalizar>
+					<ButtonModalFinalizar buttonLabel={buttonLabel} color="primary">{buttonLabel}</ButtonModalFinalizar>
 					<Button className="btn btn-danger" onClick={toggle}>Fechar</Button>
 				</ModalFooter>
 			</Modal>

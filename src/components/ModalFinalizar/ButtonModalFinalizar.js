@@ -10,7 +10,7 @@ const ButtonModalFinalizar = (props) => {
 
 	return (
 		<React.Fragment>
-			<Button className="btn" onClick={toggle} />
+			<Button color="primary" className="btn" onClick={toggle}>{props.buttonLabel}</Button>
 			<ModalFinalizar buttonLabel="Fechar" className="modal-finalizar" modal={modal} toggle={toggle} />
 		</React.Fragment>
 	);
