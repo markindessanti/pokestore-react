@@ -58,14 +58,18 @@ body {
 
 .modal-open .modal {
 	position: fixed;
-	overflow-x: hidden;
+	overflow: hidden;
 }
 
 body.modal-open {
 	height: 100vh;
-	overflow:hidden;
+	overflow: hidden;
 	overflow-y: visible;
-	padding:0 !important;
+	padding: 0 !important;
 	padding-right: 15px;
 	position: static;
-  }
+}
+
+body.modal-open h5 {
+	text-align: center;
+}

@@ -1,6 +1,7 @@
 import React from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './modalCarrinho.css';
+import ListaCarrinho from '../ListaCarrinho/index';
 
 const ModalCarrinho = (props) => {
 	const {
@@ -13,10 +14,17 @@ const ModalCarrinho = (props) => {
 	return (
 		<div>
 			<Modal isOpen={modal} toggle={toggle} className={className}>
-				<ModalHeader style={{ 'backgroundColor': "#0062cc" }} color="primary" toggle={toggle}>Modal title</ModalHeader>
+				<ModalHeader cssModule={{'modal-title': 'w-100 text-center'}}>CARRINHO POKÉMON</ModalHeader>
+				<div className="container-inline">
+					{/** Essas divs não podem ser indentadas, pois se o fizermos, não ficam lado a lado */}
+					<div className="div-inline">Pokémon</div><div className="div-inline">Preço</div>
+				</div>
 				<ModalBody>
-					Bengaluru (also called Bangalore) is the capital of India's southern Karnataka state. The center of India's high-tech industry, the city is also known for its parks and nightlife. By Cubbon Park, Vidhana Soudha is a Neo-Dravidian legislative building. Former royal residences include 19th-century Bangalore Palace, modeled after England’s Windsor Castle, and Tipu Sultan’s Summer Palace, an 18th-century teak structure.
-              </ModalBody>
+					<ListaCarrinho />
+				</ModalBody>
+				<div className="container-inline">
+					<div className="div-inline">Total</div><div className="div-inline">999999,00</div>
+				</div>
 				<ModalFooter>
 					<Button color="primary">{buttonLabel}</Button>
 					<Button className="btn btn-danger" onClick={toggle}>Fechar</Button>

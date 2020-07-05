@@ -49,6 +49,67 @@ body {
 	color: rgb(255, 255, 146)
 }
 
+.modal-content, .modal-header, .modal-footer, .modal-dialog .modal-carrinho, .container-inline, .table {
+	margin: 0;
+	box-sizing: border-box;
+	max-height: 90vh !important;
+}
+
+.modal-content {
+	/* display: none; */
+	height: 90vh;
+    /* left: 0; */
+    /* position: fixed; */
+    /* top: 0; */
+}
+
 .modal-open {
-	overflow: scroll;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-body {
+	max-height: 60vh;
+	overflow-y: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.modal-header {
+	background-color: rgb(47, 106, 235);
+	color: white;
+	font-weight: 600 !important;
+	text-align: center !important;
+	margin: 0 !important;
+	box-sizing: border-box;
+}
+
+#custom-title {
+	text-align: center !important;
+}
+
+#custom-title h5 {
+	display: inline-block
+}
+
+.div-inline {
+    width: 50%;
+	display: inline-block;
+	text-align: center;
+	color: #f8f9fa;
+	margin: 5px auto;
+	box-sizing: border-box;
+}
+
+.container-inline{
+    background: rgb(47, 106, 235);
+}
+
+.img-chart {
+	max-width: 8vh;
+}
+
+table .data-field {
+	text-align: center;
 }
