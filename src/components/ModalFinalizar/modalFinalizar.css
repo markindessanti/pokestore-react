@@ -1,0 +1,111 @@
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+}
+
+.float {
+	position: fixed;
+	width: 60px;
+	height: 60px;
+	top: 140px;
+	right: 10px;
+	background-color: rgb(47, 106, 235);
+	color: #FFF;
+	border-radius: 50px;
+	text-align: center;
+}
+
+.my-float {
+	margin: 14px auto;
+}
+
+.float .tooltiptext {
+	visibility: hidden;
+	width: 120px;
+	background-color: rgb(238, 156, 26, 0.8);
+	color: #f8f9fa;
+	font-weight: 600;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px 0;
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	right: 105%;
+}
+
+.float:hover .tooltiptext {
+	visibility: visible;
+}
+
+.float:hover {
+	color: rgb(255, 255, 146)
+}
+
+.modal-content, .modal-header, .modal-footer, .modal-dialog .modal-carrinho, .container-inline, .table {
+	margin: 0;
+	box-sizing: border-box;
+	max-height: 90vh !important;
+}
+
+.modal-content {
+	height: 90vh;
+}
+
+.modal-open {
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}
+
+.modal-body {
+	max-height: 60vh;
+	overflow-y: auto;
+	margin: 0;
+	padding: 0;
+}
+
+.modal-header {
+	background-color: rgb(47, 106, 235);
+	color: white;
+	font-weight: 600 !important;
+	text-align: center !important;
+	margin: 0 !important;
+	margin-bottom: -1px !important;
+	box-sizing: border-box;
+}
+
+#custom-title {
+	text-align: center !important;
+}
+
+#custom-title h5 {
+	display: inline-block
+}
+
+.div-inline {
+    width: 50%;
+	display: inline-block;
+	text-align: center;
+	color: #f8f9fa;
+	margin: 5px auto;
+	box-sizing: border-box;
+}
+
+.container-inline{
+    background: rgb(47, 106, 235);
+}
+
+.img-chart {
+	max-width: 8vh;
+}
+
+table .data-field {
+	text-align: center;
+}

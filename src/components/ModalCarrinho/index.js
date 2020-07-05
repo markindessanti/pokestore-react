@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import './modalCarrinho.css';
 import ListaCarrinho from '../ListaCarrinho/index';
+import ButtonModalFinalizar from '../ModalFinalizar/ButtonModalFinalizar';
 
 const ModalCarrinho = (props) => {
 	const {
@@ -31,7 +32,7 @@ const ModalCarrinho = (props) => {
 					<div className="div-inline">Total</div><div className="div-inline">{total.toFixed(2).toString().replace('.', ',')}</div>
 				</div>
 				<ModalFooter>
-					<Button color="primary">{buttonLabel}</Button>
+					<ButtonModalFinalizar color="primary">{buttonLabel}</ButtonModalFinalizar>
 					<Button className="btn btn-danger" onClick={toggle}>Fechar</Button>
 				</ModalFooter>
 			</Modal>
