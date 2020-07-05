@@ -1,5 +1,5 @@
 .card {
-	flex: 0 1 calc(25% - 2rem);
+	flex: 1 1 calc(25% - 2rem);
 	padding: 5px;
 	margin: 5px 4px;
 }
@@ -40,7 +40,7 @@
 
 @media (min-width: 768px) and (max-width: 979px) {
 	.card {
-		flex: 0 1 calc(33% - 2rem);
+		flex: 1 1 calc(33% - 2rem);
 	}
 
 	.card-title {
@@ -56,7 +56,7 @@
 
 @media (max-width: 767px) {
 	.card {
-		flex: 0 1 calc(50% - 2rem);
+		flex: 1 1 calc(50% - 2rem);
 	}
 
 	.card-title {
@@ -72,7 +72,7 @@
 
 @media (max-width: 480px) {
 	.card {
-		flex: 0 1 calc(100% - 2rem);
+		flex: 1 1 calc(100% - 2rem);
 	}
 
 	.card-title {
@@ -100,4 +100,9 @@
 
 .card-subtitle, .card-text {
 	margin-top: auto !important;
+}
+
+.card-hidden {
+	visibility: hidden;
+	height: 0;
 }

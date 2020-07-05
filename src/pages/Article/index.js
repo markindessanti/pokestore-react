@@ -11,10 +11,10 @@ const initListaInfo = {
 };
 
 function Article() {
-
 	const [dados, setDados] = useState(null);
 	const [listaInfo, setListaInfo] = useState(initListaInfo);
 	const [dadosFinal, setDadosFinal] = useState(null);
+	const listaEmptCards = [0, 1, 2, 3]
 
 	async function getDados() {
 		const response = await fetch('https://pokeapi.co/api/v2/pokemon');
@@ -85,6 +85,16 @@ function Article() {
 						)
 					})
 				}
+
+				{
+					listaEmptCards.map((item) => {
+						return (
+							<Cartao classe='card-hidden' key={item} imagem="" nome="" altura="" peso="" descricao="" preco="" />
+						)
+					})
+				}
+
+				
 			</main>
 		)
 	} else {

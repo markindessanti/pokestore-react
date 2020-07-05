@@ -7,7 +7,7 @@ import './cartao.css';
 
 const Cartao = (props) => {
 	return (
-		<Card>
+		<Card className={props.classe}>
 			<CardImg src={props.imagem} alt="Card image cap" />
 			<CardBody>
 				<CardTitle>{props.nome}</CardTitle>
