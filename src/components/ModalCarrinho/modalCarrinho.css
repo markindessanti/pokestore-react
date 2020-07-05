@@ -82,6 +82,7 @@ body {
 	font-weight: 600 !important;
 	text-align: center !important;
 	margin: 0 !important;
+	margin-bottom: -1px !important;
 	box-sizing: border-box;
 }
 
