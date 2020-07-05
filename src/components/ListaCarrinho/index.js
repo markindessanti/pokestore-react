@@ -1,9 +1,16 @@
 import React from 'react';
 import { Table } from 'reactstrap';
 
-function ListaCarrinho() {
+function ListaCarrinho({ totalizar }) {
 	const carrinho = JSON.parse(localStorage.getItem('carrinho'));
 	let key = 0;
+	let total = 0;
+	carrinho.lista.map((item) => {
+		total += parseFloat(item.preco.replace(',', '.'));
+		return true;
+	})
+
+	totalizar(total);
 
 	if (carrinho.status) {
 		return (
