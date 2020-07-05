@@ -1,96 +1,44 @@
 import React from 'react';
 import { Table } from 'reactstrap';
-import image from '../../assets/img/bulbasaur.png';
 
 function ListaCarrinho() {
-	return (
-		<div>
-			<Table className="table table-bordered striped">
-				<tbody>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-					<tr className="data-field">
-						<td><img className="img-chart" src={image} alt="bulbasaur.png"/><br />Bulbasaur</td>
-						<td>62,50</td>
-					</tr>
-				</tbody>
-			</Table>
-		</div>
-	);
+	const carrinho = JSON.parse(localStorage.getItem('carrinho'));
+	let key = 0;
+
+	if (carrinho.status) {
+		return (
+			<div>
+				<Table className="table table-bordered striped">
+					<tbody>
+						{
+							carrinho.lista.map((item) => {
+								key++;
+								return (
+									<tr className="data-field" key={key}>
+										<td><img className="img-chart" src={item.imagem} alt={item.nome} /><br />{item.nome}</td>
+										<td>{item.preco}</td>
+									</tr>
+								)
+							})
+						}
+					</tbody>
+				</Table>
+			</div>
+		);
+	} else {
+		return (
+			<div>
+				<Table className="table table-bordered striped">
+					<tbody>
+						<tr className="data-field">
+							<td>{carrinho.mensagem}</td>
+						</tr>
+					</tbody>
+				</Table>
+			</div>
+		);
+	}
+
 }
 
 export default ListaCarrinho;
