@@ -20,7 +20,7 @@ const Header = (props) => {
 				<Navbar color="warning" dark expand="md">
 					<NavbarBrand className="div-brand" href="/">
 						<img className="logo" src="../../favicon.ico" alt="logo" />
-						<span className="logo-text">GAMA POKESTORE</span>
+						<span className="logo-text">GAMA POKÉSTORE</span>
 					</NavbarBrand>
 					<NavbarToggler onClick={toggle} />
 					<Collapse isOpen={isOpen} navbar>
