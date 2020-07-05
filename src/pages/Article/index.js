@@ -24,6 +24,8 @@ function Article() {
 
 	useEffect(() => {
 		getDados();
+		const carrinho = {status: false, mensagem: 'Você ainda não selecionou nenhum pokémon para compra', lista:[]};
+		localStorage.setItem('carrinho', JSON.stringify(carrinho));
 	}, [])
 
 	useEffect(() => {

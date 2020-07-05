@@ -17,7 +17,14 @@ const Cartao = (props) => {
 					<CardText>Preço: {props.preco}</CardText>
 				</div>
 				<div className="div-card-button">
-					<Button className="card-button">Enviar para o carrinho</Button>
+					<Button className="card-button" onClick={
+						() => {
+							const carrinho = JSON.parse(localStorage.getItem('carrinho'));
+							localStorage.clear();
+							const carrinhoUpdated= {status: true, lista: [...carrinho.lista, {nome: props.nome, imagem:props.imagem, preco: props.preco}]};
+							localStorage.setItem('carrinho', JSON.stringify(carrinhoUpdated));
+						}
+					}>Enviar para o carrinho</Button>
 				</div>
 			</CardBody>
 		</Card>
