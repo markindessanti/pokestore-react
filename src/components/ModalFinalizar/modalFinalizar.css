@@ -65,10 +65,17 @@ body {
 }
 
 .modal-body {
-	max-height: 60vh;
+	max-height: 90vh;
 	overflow-y: auto;
 	margin: 0;
 	padding: 0;
+	text-align: center;
+}
+
+.modal-body .img-finalizar {
+	width: 40%;
+	box-shadow: 0 5px 5px rgb(150, 150, 150);
+	margin: 10px auto 20px auto;
 }
 
 .modal-header {
