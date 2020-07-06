@@ -11,13 +11,16 @@ const initListaInfo = {
 	sprite: null
 };
 
-function Article() {
+function Article(props) {
 	const [urlFetch, setUrlFetch] = useState('https://pokeapi.co/api/v2/pokemon');
 	const [dados, setDados] = useState(null);
 	const [listaInfo, setListaInfo] = useState(initListaInfo);
 	const [dadosFinal, setDadosFinal] = useState(null);
 	const listaEmptCards = [0, 1, 2, 3];
-	const [trocaDePagina, setTrocaDePagina] = useState(false);
+	const {
+		trocaDePagina,
+		setTrocaDePagina
+	} = props;
 
 	useEffect(() => {
 		async function getDados() {
@@ -190,9 +193,10 @@ function Article() {
 								if (dados.next) {
 									return (
 										<Button className="btn-avancar" color="info" onClick={
+
 											() => {
 												setTrocaDePagina(true);
-												setUrlFetch(dados.previous);
+												setUrlFetch(dados.next);
 											}
 										}>Avançar</Button>
 									)
