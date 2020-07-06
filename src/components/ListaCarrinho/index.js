@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Table } from 'reactstrap';
 
-function ListaCarrinho({ totalizar }) {
+function ListaCarrinho(props) {
 	const carrinho = JSON.parse(localStorage.getItem('carrinho'));
 	let key = 0;
 	let total = 0;
@@ -9,8 +9,11 @@ function ListaCarrinho({ totalizar }) {
 		total += parseFloat(item.preco.replace(',', '.'));
 		return true;
 	})
+	const totalizar = props.totalizar;
 
-	totalizar(total);
+	useEffect(() => {
+		totalizar(total);
+	}, [total, totalizar]);
 
 	if (carrinho.status) {
 		return (
