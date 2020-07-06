@@ -6,10 +6,6 @@ import Footer from './pages/Footer';
 import ButtonModal from './components/ModalCarrinho/ButtonModal';
 
 function Routes(props) {
-	const {
-		trocaDePagina,
-		setTrocaDePagina
-	} = props;
 
 	return (
 		<BrowserRouter>
@@ -24,7 +20,7 @@ function Routes(props) {
 									<Header />
 								</div>
 								<div className="container">
-									<Article {...props} trocaDePagina={trocaDePagina} setTrocaDePagina={setTrocaDePagina} />
+									<Article />
 								</div>
 								<div className="jumbo-footer jumbotron">
 									<Footer />
@@ -34,8 +30,6 @@ function Routes(props) {
 								</React.Fragment>
 							</React.Fragment>
 					}
-					trocaDePagina={trocaDePagina}
-					setTrocaDePagina={setTrocaDePagina}
 				/>
 			</Switch>
 		</BrowserRouter>

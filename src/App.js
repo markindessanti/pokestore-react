@@ -1,13 +1,10 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Routes from './routes';
 
-
 const App = () => {
-	const [trocaDePagina, setTrocaDePagina] = useState(false);
-
 	return (
 		<React.Fragment>
-			<Routes trocaDePagina={trocaDePagina} setTrocaDePagina={setTrocaDePagina} />
+			<Routes />
 		</React.Fragment>
 	);
 }

@@ -11,16 +11,13 @@ const initListaInfo = {
 	sprite: null
 };
 
-function Article(props) {
+function Article() {
 	const [urlFetch, setUrlFetch] = useState('https://pokeapi.co/api/v2/pokemon');
 	const [dados, setDados] = useState(null);
 	const [listaInfo, setListaInfo] = useState(initListaInfo);
 	const [dadosFinal, setDadosFinal] = useState(null);
 	const listaEmptCards = [0, 1, 2, 3];
-	const {
-		trocaDePagina,
-		setTrocaDePagina
-	 } = props;
+	const [trocaDePagina, setTrocaDePagina] = useState(false);
 
 	useEffect(() => {
 		async function getDados() {
@@ -29,9 +26,11 @@ function Article(props) {
 			setDados(json);
 		}
 		getDados();
-		const carrinho = { status: false, mensagem: 'Você ainda não selecionou nenhum pokémon para compra', lista: [] };
-		localStorage.setItem('carrinho', JSON.stringify(carrinho));
-	}, [urlFetch])
+		if (!trocaDePagina) {
+			const carrinho = { status: false, mensagem: 'Você ainda não selecionou nenhum pokémon para compra', lista: [] };
+			localStorage.setItem('carrinho', JSON.stringify(carrinho));
+		}
+	}, [trocaDePagina, urlFetch])
 
 	useEffect(() => {
 		let lista = [];
@@ -86,8 +85,13 @@ function Article(props) {
 						(
 							() => {
 								if (dados.previous) {
-									return(
-										<Button className="btn-voltar" color="info" onClick={() => setUrlFetch(dados.previous)}>Voltar</Button>
+									return (
+										<Button className="btn-voltar" color="info" onClick={
+											() => {
+												setTrocaDePagina(true);
+												setUrlFetch(dados.previous);
+											}
+										}>Voltar</Button>
 									)
 								} else {
 									return (
@@ -101,8 +105,14 @@ function Article(props) {
 						(
 							() => {
 								if (dados.next) {
-									return(
-										<Button className="btn-avancar" color="info" onClick={() => setUrlFetch(dados.next)}>Avançar</Button>
+									return (
+										<Button className="btn-avancar" color="info" onClick={
+
+											() => {
+												setTrocaDePagina(true);
+												setUrlFetch(dados.next);
+											}
+										}>Avançar</Button>
 									)
 								} else {
 									return (
@@ -123,9 +133,7 @@ function Article(props) {
 									altura={item.altura}
 									peso={item.peso}
 									descricao={item.descricao}
-									preco={item.preco}
-									trocaDePagina={trocaDePagina}
-									setTrocaDePagina={setTrocaDePagina} />
+									preco={item.preco} />
 							)
 						})
 					}
@@ -143,8 +151,13 @@ function Article(props) {
 						(
 							() => {
 								if (dados.previous) {
-									return(
-										<Button className="btn-voltar" color="info" onClick={() => setUrlFetch(dados.previous)}>Voltar</Button>
+									return (
+										<Button className="btn-voltar" color="info" onClick={
+											() => {
+												setTrocaDePagina(true);
+												setUrlFetch(dados.previous);
+											}
+										}>Voltar</Button>
 									)
 								} else {
 									return (
@@ -158,8 +171,13 @@ function Article(props) {
 						(
 							() => {
 								if (dados.next) {
-									return(
-										<Button className="btn-avancar" color="info" onClick={() => setUrlFetch(dados.next)}>Avançar</Button>
+									return (
+										<Button className="btn-avancar" color="info" onClick={
+											() => {
+												setTrocaDePagina(true);
+												setUrlFetch(dados.previous);
+											}
+										}>Avançar</Button>
 									)
 								} else {
 									return (
