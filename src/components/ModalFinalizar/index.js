@@ -8,20 +8,25 @@ const ModalFinalizar = (props) => {
 	const {
 		buttonLabel,
 		className,
-		modal,
+		modalFinalizar,
 		toggle,
+		toggleFinalizar,
 		status
 	} = props;
 
 	return (
 		<div>
-			<Modal isOpen={modal} toggle={toggle} className={className}>
+			<Modal isOpen={modalFinalizar} toggle={toggleFinalizar} className={className}>
 				<ModalHeader cssModule={{ 'modal-title': 'w-100 text-center' }}>POKÉSTORE</ModalHeader>
 				<ModalBody>
 					{
 						(
 							() => {
-								if (status) {
+								if (status && modalFinalizar) {
+									localStorage.clear();
+									const carrinho = { status: false, mensagem: 'Você ainda não selecionou nenhum pokémon para compra', lista: [] };
+									localStorage.setItem('carrinho', JSON.stringify(carrinho));
+
 									return (
 										<React.Fragment>
 											<img className="img-finalizar" src={compraOK} alt="Compra OK - Ash feliz!!!" />
@@ -41,7 +46,10 @@ const ModalFinalizar = (props) => {
 					}
 				</ModalBody>
 				<ModalFooter>
-					<Button className="btn btn-danger" onClick={toggle}>{buttonLabel}</Button>
+					<Button className="btn btn-danger" onClick={() => {
+						toggle();
+						toggleFinalizar();
+					  }}>{buttonLabel}</Button>
 				</ModalFooter>
 			</Modal>
 		</div>
