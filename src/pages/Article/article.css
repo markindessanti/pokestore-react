@@ -18,13 +18,17 @@ main {
 	margin-bottom: 5%;
 }
 
-.btn-voltar {
+.btn-voltar, .btn-voltar-dumb {
 	margin-left: 15%;
 	width: 95px;
 }
 
-.btn-avancar {
+.btn-avancar, .btn-avancar-dumb {
 	float: right;	
 	margin-right: 15%;
 	width: 95px;
+}
+
+.btn-voltar-dumb, .btn-avancar-dumb {
+	visibility: hidden;
 }

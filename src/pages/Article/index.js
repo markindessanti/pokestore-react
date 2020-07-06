@@ -85,6 +85,10 @@ function Article() {
 									return(
 										<Button className="btn-voltar" color="info" onClick={() => setUrlFetch(dados.previous)}>Voltar</Button>
 									)
+								} else {
+									return (
+										<Button className="btn-voltar-dumb" color="info">Voltar</Button>
+									)
 								}
 							}
 						)()
@@ -95,6 +99,10 @@ function Article() {
 								if (dados.next) {
 									return(
 										<Button className="btn-avancar" color="info" onClick={() => setUrlFetch(dados.next)}>Avançar</Button>
+									)
+								} else {
+									return (
+										<Button className="btn-avancar-dumb" color="info">Voltar</Button>
 									)
 								}
 							}
@@ -132,6 +140,10 @@ function Article() {
 									return(
 										<Button className="btn-voltar" color="info" onClick={() => setUrlFetch(dados.previous)}>Voltar</Button>
 									)
+								} else {
+									return (
+										<Button className="btn-voltar-dumb" color="info">Voltar</Button>
+									)
 								}
 							}
 						)()
@@ -142,6 +154,10 @@ function Article() {
 								if (dados.next) {
 									return(
 										<Button className="btn-avancar" color="info" onClick={() => setUrlFetch(dados.next)}>Avançar</Button>
+									)
+								} else {
+									return (
+										<Button className="btn-avancar-dumb" color="info">Voltar</Button>
 									)
 								}
 							}
