@@ -5,3 +5,26 @@ main {
 	flex-flow: row wrap;
 	padding: 10px 5px;
 }
+
+.navigation-top {
+	display: inline-block;
+	width: 100%;
+	margin-top: 5%;
+}
+
+.navigation-bottom {
+	display: inline-block;
+	width: 100%;
+	margin-bottom: 5%;
+}
+
+.btn-voltar {
+	margin-left: 15%;
+	width: 95px;
+}
+
+.btn-avancar {
+	float: right;	
+	margin-right: 15%;
+	width: 95px;
+}

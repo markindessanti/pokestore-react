@@ -106,6 +106,8 @@ body {
 	max-width: 8vh;
 }
 
-table .data-field {
+.data-field, .data-field td {
 	text-align: center;
+	padding: 5px !important;
+	vertical-align: middle;
 }
