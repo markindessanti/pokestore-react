@@ -111,3 +111,79 @@ body {
 	padding: 5px !important;
 	vertical-align: middle;
 }
+
+* {
+	padding: 0;
+	margin: 0;
+}
+
+body {
+	font-family: 'Montserrat', sans-serif;
+	font-size: 18px;
+}
+
+.fab {
+	position: fixed;
+	width: 64px;
+	height: 64px;
+	top: 160px;
+	right: 10px;
+	background-color: rgb(47, 106, 235);
+	color: #FFF;
+	font-size: 2.3em;
+	border-radius: 50px;
+	text-align: center;
+	/* box-shadow: 2px 2px 3px #999; */
+}
+
+.fab i {
+	vertical-align: 100%;
+}
+
+.my-fab {
+	margin: 14px auto;
+}
+
+.fab .tooltiptext {
+	visibility: hidden;
+	font-size: 0.3em;
+	width: 140px;
+	background-color: rgba(170, 0, 0, 0.8);
+	color: #f8f9fa;
+	font-weight: 500;
+	text-align: center;
+	border-radius: 5px;
+	padding: 5px 0;
+	letter-spacing: 1px;
+	/* Position the tooltip */
+	position: absolute;
+	z-index: 1;
+	top: -5px;
+	right: 105%;
+}
+
+.fab:hover .tooltiptext {
+	visibility: visible;
+}
+
+.fab:hover {
+	color: rgb(255, 255, 146)
+}
+
+.modal-open .modal {
+	position: fixed;
+	overflow: hidden;
+}
+
+body.modal-open {
+	height: 100vh;
+	overflow: hidden;
+	overflow-y: visible;
+	padding: 0 !important;
+	padding-right: 15px;
+	position: static;
+}
+
+body.modal-open h5 {
+	text-align: center;
+}

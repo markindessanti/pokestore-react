@@ -18,7 +18,7 @@ const ModalCarrinho = (props) => {
 	}
 
 	return (
-		<div>
+		<React.Fragment>
 			<Modal isOpen={modal} toggle={toggle} className={className}>
 				<ModalHeader cssModule={{ 'modal-title': 'w-100 text-center' }}>CARRINHO POKÉMON</ModalHeader>
 				<div className="container-inline">
@@ -36,7 +36,7 @@ const ModalCarrinho = (props) => {
 					<Button className="btn btn-danger" onClick={toggle}>Fechar</Button>
 				</ModalFooter>
 			</Modal>
-		</div>
+		</React.Fragment>
 	);
 }
 

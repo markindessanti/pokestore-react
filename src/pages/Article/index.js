@@ -11,12 +11,16 @@ const initListaInfo = {
 	sprite: null
 };
 
-function Article() {
+function Article(props) {
 	const [urlFetch, setUrlFetch] = useState('https://pokeapi.co/api/v2/pokemon');
 	const [dados, setDados] = useState(null);
 	const [listaInfo, setListaInfo] = useState(initListaInfo);
 	const [dadosFinal, setDadosFinal] = useState(null);
 	const listaEmptCards = [0, 1, 2, 3];
+	const {
+		trocaDePagina,
+		setTrocaDePagina
+	 } = props;
 
 	useEffect(() => {
 		async function getDados() {
@@ -119,7 +123,9 @@ function Article() {
 									altura={item.altura}
 									peso={item.peso}
 									descricao={item.descricao}
-									preco={item.preco} />
+									preco={item.preco}
+									trocaDePagina={trocaDePagina}
+									setTrocaDePagina={setTrocaDePagina} />
 							)
 						})
 					}

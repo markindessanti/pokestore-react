@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Routes from './routes';
 
-class App extends React.Component {
-	render() {
-		return (
-			<div>
-				<Routes />
-			</div>
-		);
-	}
+
+const App = () => {
+	const [trocaDePagina, setTrocaDePagina] = useState(false);
+
+	return (
+		<React.Fragment>
+			<Routes trocaDePagina={trocaDePagina} setTrocaDePagina={setTrocaDePagina} />
+		</React.Fragment>
+	);
 }
 
 export default App;
