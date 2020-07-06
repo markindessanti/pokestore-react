@@ -65,7 +65,24 @@ function Article() {
 			listaInfo.forEach(async (item) => {
 				const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${item.id}/`);
 				const json = await response.json();
-				const descricao = { descricao: (json.flavor_text_entries[0].flavor_text).replace(/\n/g, ' ').replace(/\f/g, ' ') };
+
+				const encontrarDescricao = (object, language) => {
+					let index = [];
+					object.forEach((item) => {
+						if (item.language.name === language) {
+							index.push(item.flavor_text);
+						}
+					});
+					return index[0];
+				}
+				let description = encontrarDescricao(json.flavor_text_entries, "es");
+
+				if (!description) {
+					console.log('English');
+					description = encontrarDescricao(json.flavor_text_entries, "en");
+				}
+
+				const descricao = { descricao: description.replace(/\n/g, ' ').replace(/\f/g, ' ') };
 
 				lista.push(Object.assign(item, descricao))
 
