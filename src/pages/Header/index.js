@@ -27,7 +27,7 @@ const Header = (props) => {
 						<Nav className="mr-auto" navbar>
 						</Nav>
 						<form className="form-inline my-2 my-lg-0">
-							<input id="inputPesquisar" className="form-control mr-sm-2" type="search" placeholder="Qual Pokémon você está procurando?" aria-label="Search"></input>
+							<input id="inputPesquisar" className="form-control mr-sm-2" type="search" placeholder="Qual Pokémon você quer?" aria-label="Search"></input>
 							<button className="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
 						</form>
 					</Collapse>
