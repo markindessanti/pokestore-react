@@ -24,6 +24,7 @@ const Cartao = (props) => {
 							localStorage.clear();
 							const carrinhoUpdated= {status: true, lista: [...carrinho.lista, {nome: props.nome, imagem:props.imagem, preco: props.preco}]};
 							localStorage.setItem('carrinho', JSON.stringify(carrinhoUpdated));
+							alert('O pokémon selecionado foi enviado para o carrinho.')
 						}
 					}>Enviar para o carrinho</Button>
 				</div>
