@@ -166,34 +166,75 @@ const Article = React.memo((props) => {
 						)()
 					}
 				</div>
-				<main>
-					{
-						listaFinal.map((item) => {
-							return (
-								<Cartao key={item.id}
-									imagem={item.sprite}
-									nome={item.nome}
-									altura={item.altura}
-									peso={item.peso}
-									descricao={item.descricao}
-									preco={item.preco} />
-							)
-						})
-					}
-					{
-						(
-							() => {
-								if (dadosFinalSize > 1) {
-									listaEmptCards.map((item) => {
-										return (
-											<Cartao classe='card-hidden' key={item} imagem="" nome="" altura="" peso="" descricao="" preco="" />
-										)
-									})
-								}
+				{
+					(
+						() => {
+							if (dadosFinalSize > 1) {
+								return (
+									<main>
+										{
+											listaFinal.map((item) => {
+												return (
+													<Cartao key={item.id}
+														imagem={item.sprite}
+														nome={item.nome}
+														altura={item.altura}
+														peso={item.peso}
+														descricao={item.descricao}
+														preco={item.preco} />
+												)
+											})
+										}
+										{
+											(
+												() => {
+													if (dadosFinalSize > 1) {
+														listaEmptCards.map((item) => {
+															return (
+																<Cartao classe='card-hidden' key={item} imagem="" nome="" altura="" peso="" descricao="" preco="" />
+															)
+														})
+													}
+												}
+											)()
+										}
+									</main>
+								)
+							} else {
+								return (
+									<main className="main-card-unico">
+										{
+											listaFinal.map((item) => {
+												return (
+													<Cartao key={item.id}
+														imagem={item.sprite}
+														nome={item.nome}
+														altura={item.altura}
+														peso={item.peso}
+														descricao={item.descricao}
+														preco={item.preco} />
+												)
+											})
+										}
+										{
+											(
+												() => {
+													if (dadosFinalSize > 1) {
+														listaEmptCards.map((item) => {
+															return (
+																<Cartao classe='card-hidden' key={item} imagem="" nome="" altura="" peso="" descricao="" preco="" />
+															)
+														})
+													}
+												}
+											)()
+										}
+									</main>
+								)
 							}
-						)()
-					}
-				</main>
+						}
+					)()
+				}
 				<div className="container navigation-bottom">
 					{
 						(
