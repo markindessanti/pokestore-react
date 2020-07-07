@@ -21,12 +21,16 @@ const Header = (props) => {
 	async function handleForm() {
 		const usuarioLower = usuario.toLowerCase();
 		async function getDados() {
-			const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${usuarioLower}`);
-			const json = await response.json();
-			const offset = parseInt(json.id) - 1;
-			const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=1`;
-			setTrocaDePagina(true);
-			setUrlFetch(url);
+			try {
+				const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${usuarioLower}`);
+				const json = await response.json();
+				const offset = parseInt(json.id) - 1;
+				const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=1`;
+				setTrocaDePagina(true);
+				setUrlFetch(url);
+			} catch (error) {
+				alert('Não encontramos nenhum pokémon com o nome digitado.\n\nPor favor, tente novamente');
+			}
 		}
 		getDados();
 	}
