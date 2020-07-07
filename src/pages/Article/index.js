@@ -11,15 +11,16 @@ const initListaInfo = {
 	sprite: null
 };
 
-function Article(props) {
-	const [urlFetch, setUrlFetch] = useState('https://pokeapi.co/api/v2/pokemon');
+const Article = React.memo((props) => {
 	const [dados, setDados] = useState(null);
 	const [listaInfo, setListaInfo] = useState(initListaInfo);
 	const [dadosFinal, setDadosFinal] = useState(null);
 	const listaEmptCards = [0, 1, 2, 3];
 	const {
 		trocaDePagina,
-		setTrocaDePagina
+		setTrocaDePagina,
+		urlFetch,
+		setUrlFetch
 	} = props;
 
 	useEffect(() => {
@@ -33,7 +34,7 @@ function Article(props) {
 			const carrinho = { status: false, mensagem: 'Você ainda não selecionou nenhum pokémon para compra', lista: [] };
 			localStorage.setItem('carrinho', JSON.stringify(carrinho));
 		}
-	}, [trocaDePagina, urlFetch])
+	}, [urlFetch])
 
 	useEffect(() => {
 		let lista = [];
@@ -110,9 +111,16 @@ function Article(props) {
 					})
 			})()
 		}
-	}, [dados, listaInfo]);
+	}, [listaInfo]);
 
 	if (dadosFinal) {
+		let dadosFinalSize = 0;
+		if (dadosFinal.length === 1) {
+			dadosFinalSize = 1;
+		} else {
+			dadosFinalSize = dadosFinal.length
+		}
+
 		const listaFinal = dadosFinal
 		return (
 			<React.Fragment>
@@ -143,7 +151,6 @@ function Article(props) {
 								if (dados.next) {
 									return (
 										<Button className="btn-avancar" color="info" onClick={
-
 											() => {
 												setTrocaDePagina(true);
 												setUrlFetch(dados.next);
@@ -173,13 +180,18 @@ function Article(props) {
 							)
 						})
 					}
-
 					{
-						listaEmptCards.map((item) => {
-							return (
-								<Cartao classe='card-hidden' key={item} imagem="" nome="" altura="" peso="" descricao="" preco="" />
-							)
-						})
+						(
+							() => {
+								if (dadosFinalSize > 1) {
+									listaEmptCards.map((item) => {
+										return (
+											<Cartao classe='card-hidden' key={item} imagem="" nome="" altura="" peso="" descricao="" preco="" />
+										)
+									})
+								}
+							}
+						)()
 					}
 				</main>
 				<div className="container navigation-bottom">
@@ -209,7 +221,6 @@ function Article(props) {
 								if (dados.next) {
 									return (
 										<Button className="btn-avancar" color="info" onClick={
-
 											() => {
 												setTrocaDePagina(true);
 												setUrlFetch(dados.next);
@@ -237,6 +248,6 @@ function Article(props) {
 			</div>
 		);
 	}
-}
+})
 
 export default Article;

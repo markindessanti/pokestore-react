@@ -6,6 +6,7 @@ import Footer from './pages/Footer';
 import ButtonModal from './components/ModalCarrinho/ButtonModal';
 
 function Routes(props) {
+	const [urlFetch, setUrlFetch] = useState('https://pokeapi.co/api/v2/pokemon');
 	const [trocaDePagina, setTrocaDePagina] = useState(false);
 
 	return (
@@ -18,10 +19,20 @@ function Routes(props) {
 						props =>
 							<React.Fragment>
 								<div className="bg-warning jumbotron">
-									<Header />
+									<Header
+										{...props}
+										trocaDePagina={trocaDePagina}
+										setTrocaDePagina={setTrocaDePagina}
+										urlFetch={urlFetch}
+										setUrlFetch={setUrlFetch} />
 								</div>
 								<div className="container">
-									<Article {...props} trocaDePagina={trocaDePagina} setTrocaDePagina={setTrocaDePagina} />
+									<Article
+										{...props}
+										trocaDePagina={trocaDePagina}
+										setTrocaDePagina={setTrocaDePagina}
+										urlFetch={urlFetch}
+										setUrlFetch={setUrlFetch} />
 								</div>
 								<div className="jumbo-footer jumbotron">
 									<Footer />

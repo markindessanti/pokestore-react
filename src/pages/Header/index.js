@@ -11,8 +11,25 @@ import './header.css';
 
 const Header = (props) => {
 	const [isOpen, setIsOpen] = useState(false);
-
+	const [usuario, setUsuario] = useState('');
 	const toggle = () => setIsOpen(!isOpen);
+	const {
+		setTrocaDePagina,
+		setUrlFetch
+	} = props;
+
+	async function handleForm() {
+		const usuarioLower = usuario.toLowerCase();
+		async function getDados() {
+			const response = await fetch(`https://pokeapi.co/api/v2/pokemon/${usuarioLower}`);
+			const json = await response.json();
+			const offset = parseInt(json.id) - 1;
+			const url = `https://pokeapi.co/api/v2/pokemon/?offset=${offset}&limit=1`;
+			setTrocaDePagina(true);
+			setUrlFetch(url);
+		}
+		getDados();
+	}
 
 	return (
 		<Container>
@@ -26,10 +43,10 @@ const Header = (props) => {
 					<Collapse isOpen={isOpen} navbar>
 						<Nav className="mr-auto" navbar>
 						</Nav>
-						<form className="form-inline my-2 my-lg-0">
-							<input id="inputPesquisar" className="form-control mr-sm-2" type="search" placeholder="Qual Pokémon você quer?" aria-label="Search"></input>
-							<button className="btn btn-outline-light my-2 my-sm-0" type="submit">Pesquisar</button>
-						</form>
+						<div className="form-inline my-2 my-lg-0">
+							<input id="inputPesquisar" className="form-control mr-sm-2" type="search" placeholder="Qual Pokémon você quer?" aria-label="Search" value={usuario} onChange={e => setUsuario(e.target.value)}></input>
+							<button className="btn btn-outline-light my-2 my-sm-0" onClick={handleForm}>Pesquisar</button>
+						</div>
 					</Collapse>
 				</Navbar>
 			</header>
