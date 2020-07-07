@@ -25,15 +25,17 @@
 	text-shadow: 0 2px 5px rgba(30, 30, 30, 0.5);
 }
 
+.div-brand {
+	cursor: pointer;
+}
+
 @media (max-width: 480px) {
 	.div-brand {
 		display: block;
 	}
-
 	.logo-text {
 		font-size: 1.2em;
 	}
-	
 	#inputPesquisar {
 		display: block;
 		width: 100%;
