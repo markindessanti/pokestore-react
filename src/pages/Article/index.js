@@ -38,66 +38,82 @@ function Article(props) {
 	useEffect(() => {
 		let lista = [];
 		if (dados) {
-			dados.results.forEach(async (item) => {
-				const response = await fetch(item.url);
-				const json = await response.json();
-				const result = {
-					id: json.id,
-					nome: json.name[0].toUpperCase() + json.name.slice(1),
-					altura: (parseInt(json.height) * 10).toString() + ' cm',
-					peso: ((parseInt(json.weight) * 100) / 1000).toString().replace('.', ',') + ' kg',
-					sprite: `https://pokeres.bastionbot.org/images/pokemon/${json.id}.png`,
-					preco: (((parseInt(json.height) * 2) + (parseInt(json.weight) / 4)) * 2).toFixed(2).toString().replace('.', ','),
-					previous: dados.previous,
-					next: dados.next
+			let dadostemp = dados;
+			async function fetchData(lista) {
+				for (let index = 0; index < lista.results.length; index++) {
+					const element = lista.results[index];
+					const response = await fetch(element.url);
+					const json = await response.json();
+					const result = {
+						id: json.id,
+						nome: json.name[0].toUpperCase() + json.name.slice(1),
+						altura: (parseInt(json.height) * 10).toString() + ' cm',
+						peso: ((parseInt(json.weight) * 100) / 1000).toString().replace('.', ',') + ' kg',
+						sprite: `https://pokeres.bastionbot.org/images/pokemon/${json.id}.png`,
+						preco: (((parseInt(json.height) * 2) + (parseInt(json.weight) / 4)) * 2).toFixed(2).toString().replace('.', ','),
+						previous: dadostemp.previous,
+						next: dadostemp.next
+					}
+					dadostemp.results[index] = result;
 				}
-
-				lista.push(result);
-
-				if (lista.length === 20) {
-					setListaInfo(lista);
-				}
-
-			})
+			}
+			(async () => {
+				await fetchData(dadostemp)
+					.then(() => {
+						lista = dadostemp.results;
+						return lista;
+					})
+					.then((response) => {
+						setListaInfo(response)
+					})
+			})()
 		}
 	}, [dados]);
 
 	useEffect(() => {
 		let lista = [];
-		if (listaInfo.length === 20) {
-			listaInfo.forEach(async (item) => {
-				const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${item.id}/`);
-				const json = await response.json();
+		if (listaInfo.length) {
+			let dadostemp = listaInfo;
+			async function fetchData(lista) {
+				for (let index = 0; index < lista.length; index++) {
+					const element = lista[index];
+					const response = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${element.id}/`);
+					const json = await response.json();
 
-				const encontrarDescricao = (object, language) => {
-					let index = [];
-					object.forEach((item) => {
-						if (item.language.name === language) {
-							index.push(item.flavor_text);
-						}
-					});
-					return index[0];
+					const encontrarDescricao = (object, language) => {
+						let index = [];
+						object.forEach((item) => {
+							if (item.language.name === language) {
+								index.push(item.flavor_text);
+							}
+						});
+						return index[0];
+					}
+					let description = encontrarDescricao(json.flavor_text_entries, "es");
+
+					if (!description) {
+						description = encontrarDescricao(json.flavor_text_entries, "en");
+					}
+
+					const descricao = { descricao: description.replace(/\n/g, ' ').replace(/\f/g, ' ') };
+					dadostemp[index] = Object.assign(element, descricao);
 				}
-				let description = encontrarDescricao(json.flavor_text_entries, "es");
-
-				if (!description) {
-					console.log('English');
-					description = encontrarDescricao(json.flavor_text_entries, "en");
-				}
-
-				const descricao = { descricao: description.replace(/\n/g, ' ').replace(/\f/g, ' ') };
-
-				lista.push(Object.assign(item, descricao))
-
-				if (lista.length === 20) {
-					setDadosFinal(JSON.stringify(lista));
-				}
-			})
+			}
+			(async () => {
+				await fetchData(dadostemp)
+					.then(() => {
+						lista = dadostemp;
+						return lista;
+					})
+					.then((response) => {
+						setDadosFinal(response);
+					})
+			})()
 		}
 	}, [dados, listaInfo]);
 
 	if (dadosFinal) {
-		const listaFinal = JSON.parse(dadosFinal)
+		const listaFinal = dadosFinal
 		return (
 			<React.Fragment>
 				<div className="container navigation-top">
